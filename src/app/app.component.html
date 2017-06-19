@@ -7,12 +7,12 @@
       <br><br>
       <h2>App status: {{appStatus | async}}</h2>
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let server of servers | filter:filteredStatus:'status'" [ngClass]="getStatusClasses(server)">
+        <li class="list-group-item" *ngFor="let server of servers | filter:filteredStatus:'status' | sort:'name'" [ngClass]="getStatusClasses(server)">
           <span class="badge">
             {{ server.status }}
           </span>
-          <strong>{{ server.name | shorten:15 }}</strong> | {{ server.instanceType | uppercase }} | {{ server.started | date:'fullDate'
-          | uppercase }}
+          <strong>{{ server.name | shorten:15 }}</strong> | {{ server.instanceType | uppercase | reverse}} | {{ server.started
+          | date:'fullDate' | uppercase }}
         </li>
       </ul>
     </div>
